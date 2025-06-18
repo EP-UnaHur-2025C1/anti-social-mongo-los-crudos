@@ -8,17 +8,18 @@ const getComments = async (req, res) => {
 
 const deleteCommentById = async (req, res) => {
   const { id } = req.params;
-  const comment = await Comment.findOne({id: id});
+  const comment = await Comment.findOne({_id: id});
+  console.log(comment);
 
-  await comment.destroy();
+  await Comment.deleteOne({_id: id});
   res.status(200).json(comment);
 };
 
 const updateCommentById = async (req, res) => {
   const { id } = req.params;
   const { comentario } = req.body;
-  const comment = await Comment.findOne({id: id});
-  await comment.update({ comentario });
+  const comment = await Comment.findOne({_id: id});
+  await comment.updateOne({ comentario });
   res.status(200).json(comment);
 };
 
