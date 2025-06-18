@@ -1,10 +1,11 @@
-const { Post_Images, Post } = require("../db/models");
+const { postImagesSchema, postSchema } = require("../db/models");
 
 const getImages = async (req, res) => {
   try {
-    const images = await Post_Images.findAll({});
+    const images = await postImagesSchema.find({});
     res.status(200).json(images);
   } catch (error) {
+    console.log(error);
     res.status(400).json({ message: error });
   }
 };
@@ -13,11 +14,11 @@ const getImagesByPost = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const post = await Post.findOne({id: id});
+    const post = await postSchema.findOne({_id: id});
     if (!post) {
       return res.status(404).json({ message: "No existe el post" });
     }
-    const images = await Post_Images.find({postId: id});
+    const images = await postImagesSchema.find({postId: id});
     res.status(200).json(images);
   } catch (error) {
     console.log(error);
@@ -29,18 +30,18 @@ const createImage = async (req, res) => {
   const { postId, url } = req.body;
 
   try {
-    const post = await Post.findOne({id: postId});
+    const post = await postSchema.findOne({_id: postId});
     if (!post) {
       return res.status(404).json({ message: "No existe el post" });
     }
-    const newImage = await Post_Images.create({
+    const newImage = await postImagesSchema.create({
       postId,
       url,
     });
-    res.status(200).json(newImage);
+    res.status(201).json(newImage);
   } catch (error) {
     console.log(error);
-    res.status(400).json({ message: "entra en catch" });
+    res.status(400).json({ message: "Error al crear la imagen" });
   }
 };
 
@@ -48,11 +49,11 @@ const deleteImageById = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const image = await Post_Images.findOne({id: id});
+    const image = await postImagesSchema.findOne({_id: id});
     if (!image) {
       return res.status(404).json({ message: "No existe la imagen" });
     }
-    await image.destroy();
+    await postImagesSchema.deleteOne({_id: id});
     res.status(200).json({ message: "Imagen eliminada" });
   } catch (error) {
     res.status(400).json({ message: error });

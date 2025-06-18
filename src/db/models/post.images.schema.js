@@ -14,6 +14,11 @@ const postImageSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
+  postId: {
+    type: Schema.Types.ObjectId,
+    ref: "Post",
+    required: true,
+  },
 });
 const PostImages = mongoose.model("PostImages", postImageSchema);
 module.exports = PostImages;

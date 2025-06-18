@@ -6,17 +6,10 @@ const route = Router()
 
 route.get("/", postController.getPost)
 
-route.get("/:id", postController.getPostById)
-
 route.post(
   "/",
-
   postController.createPost
 )
-
-route.put("/:id", /*genericMiddleware.validatePost */ postController.updatePost)
-
-route.delete("/:id", /*genericMiddleware.validatePost */ postController.deletePost)
 
 route.post(
   "/:id/images",
@@ -41,6 +34,7 @@ route.post(
   /*genericMiddleware.validateUser("userId"),*/
   postController.addImage
 )
+
 route.delete(
   "/:id/deleteImage/:imageId",
   /*genericMiddleware.schemaValidator(postImagesSchema),*/
@@ -48,5 +42,11 @@ route.delete(
   /*genericMiddleware.validateImageId,*/
   postController.deleteImage
 )
+
+route.get("/:id", postController.getPostById)
+
+route.put("/:id", /*genericMiddleware.validatePost */ postController.updatePost)
+
+route.delete("/:id", /*genericMiddleware.validatePost */ postController.deletePost)
 
 module.exports = route
