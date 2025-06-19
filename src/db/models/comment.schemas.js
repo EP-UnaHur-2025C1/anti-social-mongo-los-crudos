@@ -1,12 +1,12 @@
-const { mongoose }  = require('../mongoDB')
-const { Schema } = mongoose
+const { mongoose } = require("../mongoDB");
+const { Schema } = mongoose;
 
 const commentSchema = new mongoose.Schema({
   comentario: {
     type: Schema.Types.String,
     required: true,
     minlength: 3,
-    maxlength: 500, 
+    maxlength: 500,
   },
   fecha: {
     type: Schema.Types.Date,
@@ -25,7 +25,7 @@ const commentSchema = new mongoose.Schema({
 });
 
 // Atributo virtual que indica si el comentario está activo basado en el tiempo transcurrido
-commentSchema.virtual('active').get(function() {
+commentSchema.virtual("active").get(function () {
   const ahora = new Date();
   const tiempoTranscurrido = ahora - this.fecha;
   const mesesTranscurridos = tiempoTranscurrido / (1000 * 60 * 60 * 24 * 30.44); // Aproximadamente 30.44 días por mes
@@ -33,8 +33,8 @@ commentSchema.virtual('active').get(function() {
 });
 
 // Configurar para que los virtuals se incluyan en la respuesta JSON
-commentSchema.set('toJSON', { virtuals: true });
-commentSchema.set('toObject', { virtuals: true });
+commentSchema.set("toJSON", { virtuals: true });
+commentSchema.set("toObject", { virtuals: true });
 
 const updateCommentSchema = new mongoose.Schema({
   comentario: {

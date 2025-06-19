@@ -1,16 +1,13 @@
-const userSchema = require("./user.schema");
-const postSchema = require("./post.schema");
-const tagSchema = require("./tag.schema");
-const { commentSchema, updateCommentSchema, Comment } = require("./comment.schemas");
-
-const postImagesSchema = require("./post.images.schema");
+const User = require("./user.schema");
+const Post = require("./post.schema");
+const Tag = require("./tag.schema");
+const { Comment } = require("./comment.schemas");
+const Post_Images = require("./post.images.schema");
 
 module.exports = {
-  userSchema,
-  postSchema,
-  commentSchema,
-  postImagesSchema,
-  updateCommentSchema,
-  tagSchema,
-  Comment
+  User,
+  Post,
+  Comment,
+  Tag,
+  Post_Images,
 };

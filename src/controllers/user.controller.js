@@ -1,33 +1,37 @@
-const {userSchema}  = require("../db/models");
+const { User } = require("../db/models");
 
 const getUsers = async (req, res) => {
-  res.status(200).json(await userSchema.find({}));
+  res.status(200).json(await User.find({}));
 };
 
 const getUserByNickName = async (req, res) => {
   const { id } = req.params;
-  const user = await userSchema.findOne({nickName: id});
+  const user = await User.findOne({ nickName: id });
+  if (!user) {
+    return res.status(404).json({ message: "Usuario no encontrado" });
+  }
   res.status(200).json(user);
 };
 
 const createUser = async (req, res) => {
   try {
-    const newUser = await userSchema.create(req.body);
+    const newUser = await User.create(req.body);
     res.status(201).json(newUser);
   } catch (e) {
     res.status(400).json({ error: e });
   }
 };
-// VER ESTE METODO _ EN MONGO DUPLICA EL DOCUMENTO
+
 const updateUser = async (req, res) => {
   const { id } = req.params;
-  const user = await userSchema.findOne({nickName: id});
+  const user = await User.findOne({ nickName: id });
   if (!user) {
-    return res.status(400).json({ message: "Usuario no encontrado" });
+    return res.status(404).json({ message: "Usuario no encontrado" });
   }
   try {
-    await userSchema.updateOne(req.body);
-    res.status(200).json(user);
+    await User.updateOne({ nickName: id }, req.body);
+    const updatedUser = await User.findOne({ nickName: id });
+    res.status(200).json(updatedUser);
   } catch (e) {
     res.status(400).json({ error: e });
   }
@@ -35,11 +39,11 @@ const updateUser = async (req, res) => {
 
 const deleteUserByNickName = async (req, res) => {
   const { id } = req.params;
-  const user = await userSchema.findOne({nickName: id});
+  const user = await User.findOne({ nickName: id });
   if (!user) {
     return res.status(404).json({ message: "Usuario no encontrado" });
   }
-  await userSchema.deleteOne({nickName: id});
+  await User.deleteOne({ nickName: id });
   res.status(204).send();
 };
 

@@ -1,6 +1,5 @@
-
-const { mongoose }  = require('../mongoDB')
-const { Schema } = mongoose
+const { mongoose } = require("../mongoDB");
+const { Schema } = mongoose;
 
 const postImageSchema = new mongoose.Schema({
   url: {

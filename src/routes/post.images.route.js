@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const { postImagesController } = require("../controllers");
-//const { genericMiddleware } = require("../middlewares");
+const { genericMiddleware } = require("../middlewares");
+const { postImagesSchema } = require("../schemas");
 
 const route = Router();
 
@@ -8,7 +9,7 @@ route.get("/", postImagesController.getImages);
 
 route.get(
   "/:id",
-  //genericMiddleware.validatePost,
+  genericMiddleware.validatePost,
   postImagesController.getImagesByPost
 );
 
@@ -16,7 +17,7 @@ route.get(
 
 route.delete(
   "/:id",
-  //genericMiddleware.validatePost,
+  genericMiddleware.validatePost,
   postImagesController.deleteImageById
 );
 
