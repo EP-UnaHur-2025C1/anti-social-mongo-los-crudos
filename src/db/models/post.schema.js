@@ -1,4 +1,3 @@
-
 const { mongoose }  = require('../mongoDB')
 const { Schema } = mongoose
 
@@ -14,7 +13,10 @@ const schemaPost = new mongoose.Schema({
     ref: "user",
     required: true,
   },
- 
+  tags: [{
+    type: Schema.Types.ObjectId,
+    ref: "Tag"
+  }]
 });
 const Post = mongoose.model("Post", schemaPost);
 module.exports = Post;

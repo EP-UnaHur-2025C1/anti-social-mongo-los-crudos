@@ -1,25 +1,41 @@
-const { Post, Tag } = require("../db/models")
+const Post = require("../db/models/post.schema")
+const Tag = require("../db/models/tag.schema")
 
 const createCommentTag = async (req, res) => {
   const { postId, tagId } = req.body
   try {
-    const post = await Post.findOne({id: postId})
-    const tag = await Tag.findOne({id: tagId})
+    const post = await Post.findById(postId)
+    const tag = await Tag.findById(tagId)
 
-    await post.addTag(tag)
-    res.status(200).json({ message: "Tag creado con exito" })
+    if (!post || !tag) {
+      return res.status(404).json({ message: "Post o Tag no encontrado" })
+    }
+
+    if (!post.tags.includes(tagId)) {
+      post.tags.push(tagId)
+      await post.save()
+      res.status(200).json({ message: "Tag asociado con éxito" })
+    } else {
+      res.status(400).json({ message: "El tag ya está asociado a este post" })
+    }
   } catch (error) {
-    console.error("Error al crear el tag:", error)
+    console.error("Error al asociar el tag:", error)
     res.status(500).json({ message: error.message })
   }
 }
+
 const deleteCommentTag = async (req, res) => {
   const { postId, tagId } = req.body
   try {
-    const post = await Post.findOne({id: postId})
-    const tag = await Tag.findOne({id: tagId})
-    await post.removeTag(tag)
-    res.status(200).json({ message: "Tag eliminado con exito" })
+    const post = await Post.findById(postId)
+    
+    if (!post) {
+      return res.status(404).json({ message: "Post no encontrado" })
+    }
+
+    post.tags = post.tags.filter(tag => tag.toString() !== tagId)
+    await post.save()
+    res.status(200).json({ message: "Tag eliminado con éxito" })
   } catch (error) {
     console.error("Error al eliminar el tag:", error)
     res.status(500).json({ message: error.message })
@@ -30,14 +46,19 @@ const getCommentTags = async (req, res) => {
   const { id } = req.params
 
   try {
-    const post = await Post.findOne({id: id }) //agregar documento embebido
+    const post = await Post.findById(id).populate('tags', 'nombreEtiqueta -_id')
+    
+    if (!post) {
+      return res.status(404).json({ message: "Post no encontrado" })
+    }
 
-    res.status(200).json(post)
+    res.status(200).json(post.tags)
   } catch (error) {
-    console.error("Error al obtener los tags:", error)
+    console.log("Error al obtener los tags:", error)
     res.status(500).json({ message: error.message })
   }
 }
+
 module.exports = {
   createCommentTag,
   deleteCommentTag,
