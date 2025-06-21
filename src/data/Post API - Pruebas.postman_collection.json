@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "c758146e-b2e1-4d05-b6bb-4959ae5ec98b",
+		"name": "Post API - Pruebas",
+		"description": "Colección de pruebas para crear y obtener usuarios.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45062491",
+		"_collection_link": "https://cristiangomez-3717027.postman.co/workspace/Cristian-gomez's-Workspace~e68e3b15-47e5-46eb-862c-7e846e9ce527/collection/45062491-c758146e-b2e1-4d05-b6bb-4959ae5ec98b?action=share&source=collection_link&creator=45062491"
+	},
+	"item": [
+		{
+			"name": "Crear post - juanito123 - 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"contenido\": \"Este es el primer post de Juan.\",\n  \"userId\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear post - juanito123 - 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"contenido\": \"Segundo post de Juan sobre programación.\",\n  \"userId\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear post - luzmaria89 - 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"contenido\": \"Post de Luz sobre diseño UX.\",\n  \"userId\": 2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear post - luzmaria89 - 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"contenido\": \"Consejos para entrevistas en TI.\",\n  \"userId\": 2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear post - carlos_dev - 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"contenido\": \"Nuevo curso de JavaScript disponible.\",\n  \"userId\": 3\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear post - carlos_dev - 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"contenido\": \"Carlos comparte tips sobre Git.\",\n  \"userId\": 3\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear post - sofia_mtz - 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"contenido\": \"Sofía analiza patrones de diseño.\",\n  \"userId\": 4\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear post - sofia_mtz - 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"contenido\": \"Revisión de frameworks frontend.\",\n  \"userId\": 4\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear post - ana_g - 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"contenido\": \"Ana habla de accesibilidad web.\",\n  \"userId\": 5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear post - ana_g - 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"contenido\": \"Segundo artículo de Ana sobre SEO.\",\n  \"userId\": 5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

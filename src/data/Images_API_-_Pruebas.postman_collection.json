@@ -1,0 +1,310 @@
+{
+  "info": {
+    "name": "Images API - Pruebas",
+    "_postman_id": "e6a4a038-a824-467e-9ea7-d3468c51cc70",
+    "description": "Colección para testear imágenes en posts",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Imagen para post 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"http://example.com/image1.jpg\",\n  \"userId\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/1/images",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "1",
+            "images"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Imagen para post 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"http://example.com/image2.jpg\",\n  \"userId\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/2/images",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "2",
+            "images"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Imagen para post 3",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"http://example.com/image3.jpg\",\n  \"userId\": 3\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/3/images",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "3",
+            "images"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Imagen para post 4",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"http://example.com/image4.jpg\",\n  \"userId\": 4\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/4/images",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "4",
+            "images"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Imagen para post 5",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"http://example.com/image5.jpg\",\n  \"userId\": 5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/5/images",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "5",
+            "images"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Imagen para post 6",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"http://example.com/image6.jpg\",\n  \"userId\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/6/images",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "6",
+            "images"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Imagen para post 7",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"http://example.com/image7.jpg\",\n  \"userId\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/7/images",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "7",
+            "images"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Imagen para post 8",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"http://example.com/image8.jpg\",\n  \"userId\": 3\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/8/images",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "8",
+            "images"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Imagen para post 9",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"http://example.com/image9.jpg\",\n  \"userId\": 4\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/9/images",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "9",
+            "images"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Imagen para post 10",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"http://example.com/image10.jpg\",\n  \"userId\": 5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/10/images",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "10",
+            "images"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

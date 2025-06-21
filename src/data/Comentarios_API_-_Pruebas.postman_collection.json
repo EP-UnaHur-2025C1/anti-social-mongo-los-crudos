@@ -1,0 +1,310 @@
+{
+  "info": {
+    "name": "Comentarios API - Pruebas",
+    "_postman_id": "abc123",
+    "description": "Colección para testear comentarios en posts",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Comentario para post 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comentario\": \"Muy buen art\\u00edculo, gracias por compartir.\",\n  \"userIdComment\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/1/comment",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "1",
+            "comment"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Comentario para post 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comentario\": \"Juan siempre aporta contenido \\u00fatil.\",\n  \"userIdComment\": 4\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/2/comment",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "2",
+            "comment"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Comentario para post 3",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comentario\": \"Muy claro el enfoque de programaci\\u00f3n.\",\n  \"userIdComment\": 3\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/3/comment",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "3",
+            "comment"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Comentario para post 4",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comentario\": \"Excelente dise\\u00f1o, \\u00a1felicitaciones!\",\n  \"userIdComment\": 5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/4/comment",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "4",
+            "comment"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Comentario para post 5",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comentario\": \"Esto me servir\\u00e1 para mi pr\\u00f3xima entrevista.\",\n  \"userIdComment\": 4\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/5/comment",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "5",
+            "comment"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Comentario para post 6",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comentario\": \"Voy a probar ese curso ya mismo.\",\n  \"userIdComment\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/6/comment",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "6",
+            "comment"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Comentario para post 7",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comentario\": \"Git puede ser complicado, esto ayuda.\",\n  \"userIdComment\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/7/comment",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "7",
+            "comment"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Comentario para post 8",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comentario\": \"Sof\\u00eda tiene muy buenos an\\u00e1lisis.\",\n  \"userIdComment\": 5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/8/comment",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "8",
+            "comment"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Comentario para post 9",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comentario\": \"Buen repaso de herramientas frontend.\",\n  \"userIdComment\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/9/comment",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "9",
+            "comment"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Comentario para post 10",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comentario\": \"El SEO es fundamental, buen art\\u00edculo.\",\n  \"userIdComment\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/post/10/comment",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "post",
+            "10",
+            "comment"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

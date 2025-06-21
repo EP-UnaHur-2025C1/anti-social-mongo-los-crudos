@@ -1,0 +1,150 @@
+{
+  "info": {
+    "name": "Tags API - Pruebas",
+    "_postman_id": "generated-id-tags",
+    "description": "Colección para testear creación de etiquetas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear etiqueta Tecnología",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombreEtiqueta\": \"Tecnolog\\u00eda\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/tags",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "tags"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear etiqueta Educación",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombreEtiqueta\": \"Educaci\\u00f3n\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/tags",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "tags"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear etiqueta Diseño",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombreEtiqueta\": \"Dise\\u00f1o\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/tags",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "tags"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear etiqueta Desarrollo",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombreEtiqueta\": \"Desarrollo\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/tags",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "tags"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear etiqueta Noticias",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombreEtiqueta\": \"Noticias\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3001/tags",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3001",
+          "path": [
+            "tags"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

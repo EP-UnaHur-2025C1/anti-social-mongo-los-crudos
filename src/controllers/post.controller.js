@@ -12,6 +12,7 @@ const getPostById = async (req, res) => {
 
 const createPost = async (req, res) => {
   const { contenido, userId } = req.body;
+  
 
   try {
     const newPost = await Post.create({
