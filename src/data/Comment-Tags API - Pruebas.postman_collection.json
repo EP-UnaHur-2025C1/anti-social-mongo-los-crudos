@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "800692b3-db34-4941-8d60-12ce572ab42d",
+		"name": "Comment-Tags API - Pruebas",
+		"description": "Colección para testear la asignación de etiquetas a comentarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45062491"
+	},
+	"item": [
+		{
+			"name": "Asignar tag a comentario post 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"postId\": \"68570eacf76c095f1ce94fec\",\n  \"tagId\": \"685736d0f9a9651f148cdd21\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/comment-tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment-tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asignar tag a comentario post 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"postId\": \"6857226d1714e2a43d035e05\",\n  \"tagId\": \"685736d0f9a9651f148cdd23\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/comment-tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment-tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asignar tag a comentario post 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"postId\": \"6857226d1714e2a43d035e05\",\n  \"tagId\": \"685736d0f9a9651f148cdd25\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/comment-tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment-tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asignar tag a comentario post 4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"postId\": \"68572ffef9a9651f148cdcaf\",\n  \"tagId\": \"685736d0f9a9651f148cdd21\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/comment-tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment-tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asignar tag a comentario post 5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"postId\": \"68570eacf76c095f1ce94fec\",\n  \"tagId\": \"685736d0f9a9651f148cdd27\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/comment-tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment-tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asignar tag a comentario post 6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"postId\": \"6857226d1714e2a43d035e05\",\n  \"tagId\": \"685736d0f9a9651f148cdd29\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/comment-tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment-tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asignar tag a comentario post 7",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"postId\": \"68572570c15f831b926ea41a\",\n  \"tagId\": \"685736d0f9a9651f148cdd29\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/comment-tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment-tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asignar tag a comentario post 8",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"postId\": \"68572570c15f831b926ea41a\",\n  \"tagId\": \"685736d0f9a9651f148cdd21\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/comment-tags",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"comment-tags"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

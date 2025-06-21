@@ -1,14 +1,14 @@
 {
 	"info": {
-		"_postman_id": "c63031db-04c3-4867-aae4-9f78d06ada1f",
-		"name": "Usuarios API - Pruebas",
-		"description": "Colección de pruebas para crear y obtener usuarios.",
+		"_postman_id": "3f663a53-cc2f-475b-88d2-328319ff6745",
+		"name": "Tags API - Pruebas",
+		"description": "Colección para testear creación de etiquetas",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "45062491"
 	},
 	"item": [
 		{
-			"name": "Crear usuarios - Prueba 1",
+			"name": "Crear etiqueta Tecnología",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -19,24 +19,24 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"nickName\": \"juanito123\",\n  \"nombre\": \"Juan Pérez\",\n  \"email\": \"juan@example.com\",\n  \"fechaNacimiento\": \"1990-05-18\"\n}"
+					"raw": "{\n  \"nombreEtiqueta\": \"Tecnolog\\u00eda\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4000/users",
+					"raw": "http://localhost:4000/tags",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "4000",
 					"path": [
-						"users"
+						"tags"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Crear usuarios - Prueba 2",
+			"name": "Crear etiqueta Educación",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -47,24 +47,24 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"nickName\": \"luzmaria89\",\n  \"nombre\": \"Luz María\",\n  \"email\": \"luzmaria@example.com\",\n  \"fechaNacimiento\": \"1989-08-12\"\n}"
+					"raw": "{\n  \"nombreEtiqueta\": \"Educaci\\u00f3n\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4000/users",
+					"raw": "http://localhost:4000/tags",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "4000",
 					"path": [
-						"users"
+						"tags"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Crear usuarios - Prueba 3",
+			"name": "Crear etiqueta Diseño",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -75,24 +75,24 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"nickName\": \"carlos_dev\",\n  \"nombre\": \"Carlos Ramírez\",\n  \"email\": \"carlos@example.com\",\n  \"fechaNacimiento\": \"1992-11-03\"\n}"
+					"raw": "{\n  \"nombreEtiqueta\": \"Dise\\u00f1o\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4000/users",
+					"raw": "http://localhost:4000/tags",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "4000",
 					"path": [
-						"users"
+						"tags"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Crear usuarios - Prueba 4",
+			"name": "Crear etiqueta Desarrollo",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -103,24 +103,24 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"nickName\": \"sofia_mtz\",\n  \"nombre\": \"Sofía Martínez\",\n  \"email\": \"sofia@example.com\",\n  \"fechaNacimiento\": \"1995-01-21\"\n}"
+					"raw": "{\n  \"nombreEtiqueta\": \"Desarrollo\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4000/users",
+					"raw": "http://localhost:4000/tags",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "4000",
 					"path": [
-						"users"
+						"tags"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Crear usuarios - Prueba 5",
+			"name": "Crear etiqueta Noticias",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -131,36 +131,17 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"nickName\": \"ana_g_1898\",\n  \"nombre\": \"Analia Gómez\",\n  \"email\": \"ana@example.com\",\n  \"fechaNacimiento\": \"1985-03-30\"\n}"
+					"raw": "{\n  \"nombreEtiqueta\": \"Noticias\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4000/users",
+					"raw": "http://localhost:4000/tags",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "4000",
 					"path": [
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Obtener todos los usuarios",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:4000/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"users"
+						"tags"
 					]
 				}
 			},
