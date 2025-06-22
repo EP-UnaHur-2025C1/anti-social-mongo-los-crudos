@@ -1,6 +1,6 @@
 const { Post, Post_Images, Comment } = require("../db/models");
 const redisClient = require("../db/redis");
-//const { message } = require("../schemas/user.schema");
+
 const getPost = async (req, res) => {
   const posts = await Post.find({}).populate("tags", "nombreEtiqueta");
 
@@ -26,6 +26,7 @@ const getPost = async (req, res) => {
 const getPostById = async (req, res) => {
   const { id } = req.params;
   const post = await Post.findOne({ _id: id });
+  redisClient.set("post", JSON.stringify(post), { EX: 60 });
   res.status(200).json(post);
 };
 
@@ -140,16 +141,12 @@ const addTagToPost = async (req, res) => {
       return res.status(404).json({ message: "Post no encontrado" });
     }
 
-    // Verificar si el tag ya está en el post
     if (post.tags.includes(tagId)) {
       return res
         .status(400)
         .json({ message: "El tag ya está asociado a este post" });
     }
-
-    // Agregar el tag al array de tags del post
     await Post.findByIdAndUpdate(id, { $push: { tags: tagId } }, { new: true });
-
     res.status(200).json({ message: "Tag agregado correctamente al post" });
   } catch (error) {
     console.log(error);

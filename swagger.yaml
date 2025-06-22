@@ -22,7 +22,7 @@ tags:
     description: Operaciones sobre comentarios
   - name: Tags
     description: Operaciones sobre etiquetas
-  - name: CommentTags
+  - name: PostTags
     description: Relación entre comentarios y etiquetas
 
 paths:
@@ -468,8 +468,8 @@ paths:
 
   /comment-tags:
     post:
-      tags: [CommentTags]
-      summary: Relacionar comentario y etiqueta
+      tags: [PostTags]
+      summary: Relacionar post y etiqueta
       requestBody:
         required: true
         content:
@@ -486,7 +486,7 @@ paths:
         "400":
           description: Datos inválidos
     delete:
-      tags: [CommentTags]
+      tags: [PostTags]
       summary: Eliminar relación comentario-etiqueta
       requestBody:
         required: true

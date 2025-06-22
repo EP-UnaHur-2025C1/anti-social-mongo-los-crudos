@@ -55,6 +55,7 @@ route.get(
   "/:id",
   genericMiddleware.validateId,
   genericMiddleware.existsModelById(Post),
+  cacheMiddleware.checkCache,
   postController.getPostById
 );
 
@@ -70,6 +71,7 @@ route.delete(
   "/:id",
   genericMiddleware.validateId,
   genericMiddleware.validatePost,
+  cacheMiddleware.deleteCache,
   postController.deletePost
 );
 

@@ -11,7 +11,7 @@ const checkCache = async (req, res, next) => {
 
 const deleteCache = async (req, res, next) => {
   const id = (req.params.id ?? "-1").toString();
-  client.del(id);
+  await client.del(id);
   next();
 };
 
