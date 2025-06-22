@@ -1,12 +1,13 @@
 const { Router } = require("express");
 const { postController } = require("../controllers");
 const { genericMiddleware } = require("../middlewares");
+const cacheMiddleware = require("../middlewares/redis.middleware");
 const { Post } = require("../db/models");
 const { commentSchema, postSchema, postImagesSchema } = require("../schemas");
 
 const route = Router();
 
-route.get("/", postController.getPost);
+route.get("/", cacheMiddleware.checkCache, postController.getPost);
 
 route.post(
   "/",

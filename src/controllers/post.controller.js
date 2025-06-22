@@ -1,4 +1,5 @@
 const { Post, Post_Images, Comment } = require("../db/models");
+const redisClient = require("../db/redis");
 //const { message } = require("../schemas/user.schema");
 const getPost = async (req, res) => {
   const posts = await Post.find({}).populate("tags", "nombreEtiqueta");
@@ -18,7 +19,7 @@ const getPost = async (req, res) => {
       };
     })
   );
-
+  redisClient.set("posts", JSON.stringify(postsWithData), { EX: 60 });
   res.status(200).json(postsWithData);
 };
 
