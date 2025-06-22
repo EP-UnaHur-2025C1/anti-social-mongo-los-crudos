@@ -1,4 +1,4 @@
-const { Tag } = require("../db/models");
+const { Tag, Post } = require("../db/models");
 
 const getTag = async (req, res) => {
   res.status(200).json(await Tag.find({}));
@@ -20,8 +20,26 @@ const deleteTagById = async (req, res) => {
   res.status(200).send({ message: "Tag eliminado correctamente", tag });
 };
 
+const getPostsByTag = async (req, res) => {
+  const { id } = req.params;
+  try {
+   
+    
+    const posts = await Post.find({ tags: id })
+      .populate('userId', 'nickName nombre')
+      .populate('tags')
+      .sort({ createdAt: -1 });
+    
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
 module.exports = {
   getTag,
   createTag,
   deleteTagById,
+  getPostsByTag,
 };

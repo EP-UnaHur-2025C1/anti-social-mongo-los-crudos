@@ -20,4 +20,11 @@ route.delete(
   tagController.deleteTagById
 );
 
+route.get(
+  "/:id/posts",
+  genericMiddleware.validateId,
+  genericMiddleware.existsModelById(Tag),
+  tagController.getPostsByTag
+);
+
 module.exports = route;
