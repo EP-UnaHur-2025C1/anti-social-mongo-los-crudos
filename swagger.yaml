@@ -1,0 +1,605 @@
+openapi: 3.0.0
+info:
+  title: Anti-Social Network MongoDB API
+  version: 1.0.0
+  description: |
+    API para la red social experimental Anti-Social MongoDB - Los Crudos.
+    - Todos los IDs son ObjectId de MongoDB.
+    - Relaciones: referencias y embebidos según el modelo.
+    - Ejemplos y validaciones adaptados a MongoDB.
+servers:
+  - url: http://localhost:4000
+    description: Servidor local de desarrollo
+
+tags:
+  - name: Users
+    description: Operaciones sobre usuarios
+  - name: Posts
+    description: Operaciones sobre posts
+  - name: PostImages
+    description: Operaciones sobre imágenes de posts
+  - name: Comments
+    description: Operaciones sobre comentarios
+  - name: Tags
+    description: Operaciones sobre etiquetas
+  - name: CommentTags
+    description: Relación entre comentarios y etiquetas
+
+paths:
+  /users:
+    get:
+      tags: [Users]
+      summary: Obtener todos los usuarios
+      description: Retorna todos los usuarios registrados.
+      responses:
+        '200':
+          description: Lista de usuarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+              examples:
+                example:
+                  value:
+                    - _id: 60d21b4667d0d8992e610c85
+                      nickname: juanito
+                      email: juanito@mail.com
+        '500':
+          description: Error de servidor
+    post:
+      tags: [Users]
+      summary: Crear usuario
+      description: Crea un nuevo usuario.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+            examples:
+              example:
+                value:
+                  nickName: juanito19888
+                  nombre: Juanito
+                  fechaNacimiento: 1988-01-01
+                  email: juanito@mail.com
+                  
+      responses:
+        '201':
+          description: Usuario creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Datos inválidos
+  /users/{nickname}:
+    get:
+      tags: [Users]
+      summary: Obtener usuario por nickname
+      parameters:
+        - name: nickname
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuario encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: Usuario no encontrado
+    delete:
+      tags: [Users]
+      summary: Eliminar usuario por nickname
+      parameters:
+        - name: nickname
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuario eliminado
+        '404':
+          description: Usuario no encontrado
+
+  /post:
+    get:
+      tags: [Posts]
+      summary: Obtener todos los posts
+      description: Retorna todos los posts.
+      responses:
+        '200':
+          description: Lista de posts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+        '500':
+          description: Error de servidor
+    post:
+      tags: [Posts]
+      summary: Crear post
+      description: Crea un nuevo post.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostCreate'
+      responses:
+        '201':
+          description: Post creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '400':
+          description: Datos inválidos
+
+  /post/{id}:
+    get:
+      tags: [Posts]
+      summary: Obtener post por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-fA-F0-9]{24}$'
+      responses:
+        '200':
+          description: Post encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '404':
+          description: Post no encontrado
+    put:
+      tags: [Posts]
+      summary: Actualizar post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-fA-F0-9]{24}$'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostUpdate'
+      responses:
+        '200':
+          description: Post actualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '400':
+          description: Datos inválidos
+        '404':
+          description: Post no encontrado
+    delete:
+      tags: [Posts]
+      summary: Eliminar post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-fA-F0-9]{24}$'
+      responses:
+        '200':
+          description: Post eliminado
+        '404':
+          description: Post no encontrado
+
+  /post/{id}/images:
+    post:
+      tags: [Posts]
+      summary: Agregar imagen a post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-fA-F0-9]{24}$'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostImageCreate'
+      responses:
+        '201':
+          description: Imagen agregada al post
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostImage'
+        '400':
+          description: Datos inválidos
+        '404':
+          description: Post no encontrado
+
+  /post/{id}/deleteImage/{imageId}:
+    delete:
+      tags: [Posts]
+      summary: Eliminar imagen de un post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-fA-F0-9]{24}$'
+        - name: imageId
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-fA-F0-9]{24}$'
+      responses:
+        '200':
+          description: Imagen eliminada del post
+        '404':
+          description: Post o imagen no encontrada
+
+  /post/{id}/comment:
+    post:
+      tags: [Posts]
+      summary: Agregar comentario a post
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-fA-F0-9]{24}$'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentCreate'
+      responses:
+        '201':
+          description: Comentario agregado al post
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        '400':
+          description: Datos inválidos
+        '404':
+          description: Post no encontrado
+
+  /post-images:
+    get:
+      tags: [PostImages]
+      summary: Obtener todas las imágenes de posts
+      responses:
+        '200':
+          description: Lista de imágenes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PostImage'
+        '500':
+          description: Error de servidor
+
+  /post-images/{id}:
+    get:
+      tags: [PostImages]
+      summary: Obtener imagen por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-fA-F0-9]{24}$'
+      responses:
+        '200':
+          description: Imagen encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostImage'
+        '404':
+          description: Imagen no encontrada
+    delete:
+      tags: [PostImages]
+      summary: Eliminar imagen por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-fA-F0-9]{24}$'
+      responses:
+        '200':
+          description: Imagen eliminada
+        '404':
+          description: Imagen no encontrada
+
+  /comments:
+    get:
+      tags: [Comments]
+      summary: Obtener todos los comentarios
+      responses:
+        '200':
+          description: Lista de comentarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+        '500':
+          description: Error de servidor
+
+  /comments/{id}:
+    delete:
+      tags: [Comments]
+      summary: Eliminar comentario por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-fA-F0-9]{24}$'
+      responses:
+        '200':
+          description: Comentario eliminado
+        '404':
+          description: Comentario no encontrado
+
+  /tags:
+    get:
+      tags: [Tags]
+      summary: Obtener todas las etiquetas
+      responses:
+        '200':
+          description: Lista de etiquetas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+        '500':
+          description: Error de servidor
+
+  /tags/{id}:
+    delete:
+      tags: [Tags]
+      summary: Eliminar etiqueta por ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-fA-F0-9]{24}$'
+      responses:
+        '200':
+          description: Etiqueta eliminada
+        '404':
+          description: Etiqueta no encontrada
+
+  /comment-tags:
+    post:
+      tags: [CommentTags]
+      summary: Relacionar comentario y etiqueta
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentTagCreate'
+      responses:
+        '201':
+          description: Relación creada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentTag'
+        '400':
+          description: Datos inválidos
+    delete:
+      tags: [CommentTags]
+      summary: Eliminar relación comentario-etiqueta
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentTagDelete'
+      responses:
+        '200':
+          description: Relación eliminada
+        '404':
+          description: Relación no encontrada
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: ObjectId de MongoDB
+          example: 60d21b4667d0d8992e610c85
+        nickname:
+          type: string
+          description: Nickname único (índice único)
+          example: juanito
+        email:
+          type: string
+          example: juanito@mail.com
+        password:
+          type: string
+          example: $2b$10$hash
+      required: [nickname, email, password]
+    UserCreate:
+      type: object
+      properties:
+        nickname:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      required: [nickname, email, password]
+    Post:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: ObjectId de MongoDB
+          example: 60d21b4667d0d8992e610c99
+        contenido:
+          type: string
+          example: "Este es un post de ejemplo"
+        userId:
+          type: string
+          description: ObjectId de User (referencia)
+          example: 60d21b4667d0d8992e610c85
+        images:
+          type: array
+          description: Array embebido de imágenes
+          items:
+            $ref: '#/components/schemas/PostImage'
+        comments:
+          type: array
+          description: Array embebido de comentarios
+          items:
+            $ref: '#/components/schemas/Comment'
+      required: [contenido, userId]
+    PostCreate:
+      type: object
+      properties:
+        contenido:
+          type: string
+        userId:
+          type: string
+      required: [contenido, userId]
+    PostUpdate:
+      type: object
+      properties:
+        contenido:
+          type: string
+    PostImage:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: 60d21b4667d0d8992e610c77
+        url:
+          type: string
+          example: https://example.com/image.jpg
+        userId:
+          type: string
+          description: ObjectId de User (referencia)
+          example: 60d21b4667d0d8992e610c85
+      required: [url, userId]
+    PostImageCreate:
+      type: object
+      properties:
+        url:
+          type: string
+        userId:
+          type: string
+      required: [url, userId]
+    Comment:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: 60d21b4667d0d8992e610c88
+        comentario:
+          type: string
+          example: "¡Buen post!"
+        userIdComment:
+          type: string
+          description: ObjectId de User (referencia)
+          example: 60d21b4667d0d8992e610c85
+      required: [comentario, userIdComment]
+    CommentCreate:
+      type: object
+      properties:
+        comentario:
+          type: string
+        userIdComment:
+          type: string
+      required: [comentario, userIdComment]
+    Tag:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: 60d21b4667d0d8992e610c55
+        nombreEtiqueta:
+          type: string
+          example: "tecnología"
+      required: [nombreEtiqueta]
+    CommentTag:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: 60d21b4667d0d8992e610c99
+        commentId:
+          type: string
+          description: ObjectId de Comment (referencia)
+          example: 60d21b4667d0d8992e610c88
+        tagId:
+          type: string
+          description: ObjectId de Tag (referencia)
+          example: 60d21b4667d0d8992e610c55
+      required: [commentId, tagId]
+    CommentTagCreate:
+      type: object
+      properties:
+        commentId:
+          type: string
+        tagId:
+          type: string
+      required: [commentId, tagId]
+    CommentTagDelete:
+      type: object
+      properties:
+        commentId:
+          type: string
+        tagId:
+          type: string
+      required: [commentId, tagId]
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Cast to ObjectId failed for value \"123\" at path \"_id\""
+        code:
+          type: integer
+          example: 400 
