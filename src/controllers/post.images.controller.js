@@ -45,19 +45,4 @@ const createImage = async (req, res) => {
   }
 };
 
-const deleteImageById = async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const image = await Post_Images.findOne({ _id: id });
-    if (!image) {
-      return res.status(404).json({ message: "No existe la imagen" });
-    }
-    await Post_Images.deleteOne({ _id: id });
-    res.status(200).json({ message: "Imagen eliminada" });
-  } catch (error) {
-    res.status(400).json({ message: error });
-  }
-};
-
-module.exports = { getImages, getImagesByPost, createImage, deleteImageById };
+module.exports = { getImages, getImagesByPost, createImage };

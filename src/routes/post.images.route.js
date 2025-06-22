@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const { postImagesController } = require("../controllers");
 const { genericMiddleware } = require("../middlewares");
-const { postImagesSchema } = require("../schemas");
 
 const route = Router();
 
@@ -15,10 +14,6 @@ route.get(
 
 //se crea en la ruta post
 
-route.delete(
-  "/:id",
-  genericMiddleware.validatePost,
-  postImagesController.deleteImageById
-);
+//se elimina en la ruta post
 
 module.exports = route;
