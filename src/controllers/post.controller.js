@@ -1,7 +1,25 @@
 const { Post, Post_Images, Comment } = require("../db/models");
 //const { message } = require("../schemas/user.schema");
 const getPost = async (req, res) => {
-  res.status(200).json(await Post.find({}).populate("tags", "nombreEtiqueta"));
+  const posts = await Post.find({}).populate("tags", "nombreEtiqueta");
+
+  const postsWithData = await Promise.all(
+    posts.map(async (post) => {
+      const comments = await Comment.find({ postIdComment: post._id }).select(
+        "id comentario fecha userIdComment"
+      );
+      const images = await Post_Images.find({ postId: post._id }).select(
+        "url userId -_id"
+      );
+      return {
+        ...post.toObject(),
+        comments,
+        images,
+      };
+    })
+  );
+
+  res.status(200).json(postsWithData);
 };
 
 const getPostById = async (req, res) => {
@@ -12,7 +30,6 @@ const getPostById = async (req, res) => {
 
 const createPost = async (req, res) => {
   const { contenido, userId } = req.body;
-  
 
   try {
     const newPost = await Post.create({
