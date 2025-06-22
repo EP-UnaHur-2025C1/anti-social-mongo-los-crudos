@@ -500,6 +500,75 @@ paths:
         "404":
           description: Relación no encontrada
 
+  /post/{id}/addTag:
+    post:
+      tags: [Posts]
+      summary: Agregar un tag a un post
+      description: Asocia un tag existente a un post específico
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID del post al que se agregará el tag
+          schema:
+            type: string
+            pattern: "^[a-fA-F0-9]{24}$"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tagId:
+                  type: string
+                  description: ID del tag a asociar
+                  example: "507f1f77bcf86cd799439022"
+              required: [tagId]
+      responses:
+        "200":
+          description: Tag agregado correctamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Tag agregado correctamente al post"
+        "400":
+          description: El tag ya está asociado a este post
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "El tag ya está asociado a este post"
+        "404":
+          description: Post no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Post no encontrado"
+        "500":
+          description: Error al agregar el tag
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Error al agregar el tag"
+                  error:
+                    type: object
+
 components:
   schemas:
     User:

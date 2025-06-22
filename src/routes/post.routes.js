@@ -72,4 +72,11 @@ route.delete(
   postController.deletePost
 );
 
+route.post(
+  "/:id/addTag",
+  genericMiddleware.validateId,
+  genericMiddleware.validatePost,
+  postController.addTagToPost
+);
+
 module.exports = route;

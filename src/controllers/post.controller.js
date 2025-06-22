@@ -129,6 +129,33 @@ const deleteImage = async (req, res) => {
   }
 };
 
+const addTagToPost = async (req, res) => {
+  const { id } = req.params;
+  const { tagId } = req.body;
+
+  try {
+    const post = await Post.findById(id);
+    if (!post) {
+      return res.status(404).json({ message: "Post no encontrado" });
+    }
+
+    // Verificar si el tag ya está en el post
+    if (post.tags.includes(tagId)) {
+      return res
+        .status(400)
+        .json({ message: "El tag ya está asociado a este post" });
+    }
+
+    // Agregar el tag al array de tags del post
+    await Post.findByIdAndUpdate(id, { $push: { tags: tagId } }, { new: true });
+
+    res.status(200).json({ message: "Tag agregado correctamente al post" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Error al agregar el tag", error });
+  }
+};
+
 module.exports = {
   getPost,
   getPostById,
@@ -139,4 +166,5 @@ module.exports = {
   createCommentByPost,
   addImage,
   deleteImage,
+  addTagToPost,
 };
