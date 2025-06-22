@@ -26,8 +26,8 @@ const getPostsByTag = async (req, res) => {
    
     
     const posts = await Post.find({ tags: id })
-      .populate('userId', 'nickName nombre')
-      .populate('tags')
+      .populate('userId', 'nickName -_id')
+      .populate('tags', 'nombreEtiqueta -_id')
       .sort({ createdAt: -1 });
     
     res.status(200).json(posts);
