@@ -1,7 +1,7 @@
 const { Post, Post_Images, Comment } = require("../db/models");
 //const { message } = require("../schemas/user.schema");
 const getPost = async (req, res) => {
-  res.status(200).json(await Post.find({}));
+  res.status(200).json(await Post.find({}).populate("tags", "nombreEtiqueta"));
 };
 
 const getPostById = async (req, res) => {
