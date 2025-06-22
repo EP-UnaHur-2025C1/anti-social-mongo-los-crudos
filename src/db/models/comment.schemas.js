@@ -1,6 +1,6 @@
 const { mongoose } = require("../mongoDB");
 const { Schema } = mongoose;
-
+require('dotenv').config()
 const commentSchema = new mongoose.Schema({
   comentario: {
     type: Schema.Types.String,
@@ -29,7 +29,7 @@ commentSchema.virtual("active").get(function () {
   const ahora = new Date();
   const tiempoTranscurrido = ahora - this.fecha;
   const mesesTranscurridos = tiempoTranscurrido / (1000 * 60 * 60 * 24 * 30.44); // Aproximadamente 30.44 días por mes
-  return mesesTranscurridos < 6; // Retorna true si pasaron menos de 6 meses
+  return mesesTranscurridos < process.env.TIEMPO_COMENTARIO_VISIBLE; // Retorna true si pasaron menos de 6 meses
 });
 
 // Configurar para que los virtuals se incluyan en la respuesta JSON

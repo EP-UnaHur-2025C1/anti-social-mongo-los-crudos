@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
+require('dotenv').config()
 const MONGO_URL =
-  process.env.MONGO_URL ||
-  "mongodb://root:example@localhost:27017/antiSocial?authSource=admin"
+  process.env.MONGO_URI
 
 let isConnected
 const connectDB = async () => {
