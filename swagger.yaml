@@ -722,19 +722,19 @@ components:
     CommentTagCreate:
       type: object
       properties:
-        commentId:
+        postId:
           type: string
         tagId:
           type: string
-      required: [commentId, tagId]
+      required: [postId, tagId]
     CommentTagDelete:
       type: object
       properties:
-        commentId:
+        postId:
           type: string
         tagId:
           type: string
-      required: [commentId, tagId]
+      required: [postId, tagId]
     Error:
       type: object
       properties:
