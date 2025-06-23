@@ -5,6 +5,7 @@ const schemaUser = new mongoose.Schema({
   nickName: {
     type: Schema.Types.String,
     required: true,
+    unique: true,
     minlength: 8,
     maxlength: 16,
   },
