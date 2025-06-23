@@ -3,10 +3,8 @@ info:
   title: Anti-Social Network MongoDB API
   version: 1.0.0
   description: |
-    API para la red social experimental Anti-Social MongoDB - Los Crudos.
-    - Todos los IDs son ObjectId de MongoDB.
-    - Relaciones: referencias y embebidos según el modelo.
-    - Ejemplos y validaciones adaptados a MongoDB.
+    API para la red social experimental Anti-Social MongoDB - Los CRUDos.
+
 servers:
   - url: http://localhost:4000
     description: Servidor local de desarrollo
@@ -23,7 +21,7 @@ tags:
   - name: Tags
     description: Operaciones sobre etiquetas
   - name: PostTags
-    description: Relación entre comentarios y etiquetas
+    description: Relación entre posts y etiquetas
 
 paths:
   /users:
@@ -629,18 +627,22 @@ components:
       properties:
         contenido:
           type: string
+          example: "Este es un post de ejemplo"
         userId:
           type: string
+          description: ObjectId de User (referencia)
+          example: 6855a2ebf7aeb683aa8b9f3f
       required: [contenido, userId]
     PostUpdate:
       type: object
       properties:
         contenido:
           type: string
+          example: "Este es un post de ejemplo actualizado"
         userId:
           type: string
           description: ObjectId de User (referencia)
-          example: 60d21b4667d0d8992e610c85
+          example: 6855a2ebf7aeb683aa8b9f3f
       required: [contenido, userId]
     PostImage:
       type: object
@@ -661,8 +663,11 @@ components:
       properties:
         url:
           type: string
+          example: https://example.com/image-swagger.jpg
         userId:
           type: string
+          description: ObjectId de User (referencia)
+          example: 68572bb7f9a9651f148cdca8
       required: [url, userId]
     Comment:
       type: object
@@ -683,8 +688,11 @@ components:
       properties:
         comentario:
           type: string
+          example: "¡comentario de ejemplo desde swagger!"
         userIdComment:
           type: string
+          description: ObjectId de User (referencia)
+          example: 68572bb7f9a9651f148cdca8
       required: [comentario, userIdComment]
     Tag:
       type: object
